@@ -1,0 +1,86 @@
+
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Demo of Bootstrap Prompts at github.com/sairam/bootstrap-prompts</title>
+    <link rel="stylesheet" type="text/css" href="http://sair.am/demos/bootstrap-prompts/css/bootstrap.css" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script type="text/javascript" src="http://sair.am/demos/bootstrap-prompts/js/bootstrap.js"></script>
+    <script type="text/javascript" src="./bootstrap-prompts-alert.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('#alertMe').on('click', function(){
+        alert("You are in an alert triggered by alert() javascript function");
+      });
+      $('#alertBrowser').on('click', function(){
+        _originalAlert("You are in an alert triggered by original alert() javascript function");
+      });
+      $('#confirmMe').on('click', function(){
+        confirm("You are in an confirm triggered by confirm() javascript function", function(confirmed) {
+          console.log('click' + Math.random());
+          console.log("the user", ((confirmed) ? "confirmed" : "denied"), "the dialog");  
+        });
+      });
+      $('#confirmBrowser').on('click', function(){
+        var confirmed = _originalConfirm("You are in an confirm triggered by original confirm() javascript function");
+        console.log("the user", ((confirmed) ? "confirmed" : "denied"), "the dialog");
+      });
+    });
+    </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-4521017-1']);
+      _gaq.push(['_setDomainName', '.sair.am']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <style type="text/css">
+      body {
+        text-align: center;
+      }
+      #windowAlertModal .modal-footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h2> Bootstrap Prompts Demo </h2>
+    <br />
+    <h4>
+    Source at <a href='https://github.com/sairam/bootstrap-prompts' target='_blank'>github.com/sairam/bootstrap-prompts</a> </h4>
+    <br />
+    <br />
+    <br />
+    <br />
+    <button class="btn btn-large btn-primary" id="alertMe">Click me for an Alert</button>
+    <br />
+    <br />
+    <button class="btn btn-large btn-primary" id="alertBrowser">Click me for a Browser Alert</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <button class="btn btn-large btn-primary" id="confirmMe">Click me for a Confirm</button>
+    <br />
+    <br />
+    <button class="btn btn-large btn-primary" id="confirmBrowser">Click me for a Browser Confirm</button>
+    <br />
+    <br />
+    <br />
+    <br />
+    Made by <a href='http://sair.am/'>Sairam</a>.
+  </body>
+</html>
